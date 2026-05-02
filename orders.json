@@ -1,0 +1,17 @@
+[
+    {
+        "order_id": 334745,
+        "customer_id": 540475,
+        "invoice_id": 663801,
+        "date_time": "2026-05-01 09:20:10.962194",
+        "trailer": {
+            "length": 5.0,
+            "width": 2.5,
+            "area": 12.5,
+            "wheels": 0
+        },
+        "cost_per_day": 1762.5,
+        "hire_days": 5,
+        "balance_owing": 8812.5
+    }
+]
