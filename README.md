@@ -38,7 +38,7 @@ A 5m trailer works out at 12.5 square metres, two wheel sets, $1762.50 a day.
 3. Customer details are collected and saved, and a returning customer can be found by surname
 4. Everything is written back to the two JSON files
 
-About 226 lines across 9 functions.
+About 225 lines across 10 functions.
 
 ## Notes
 
