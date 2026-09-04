@@ -16,7 +16,6 @@ def space():
 
 # Fundemental Formula Calculation
 def calculate_cost(length):
-    wheels = 0
     if length < 3:
         wheel_set = 1
     else: 
@@ -24,7 +23,7 @@ def calculate_cost(length):
     
     area = length * 2.5
     cost_per_day = (area * 125) + (100 * wheel_set)
-    return cost_per_day, area, wheels
+    return cost_per_day, area, wheel_set
 
 # Print Banner
 def print_banner():

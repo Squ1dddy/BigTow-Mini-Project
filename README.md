@@ -1,48 +1,57 @@
-# BigTow — Trailer Hire Management System
+# BigTow: trailer hire management system
 
-A Python terminal application for managing trailer hire orders, built as a mini-project during self-study.
+A Python terminal application for managing trailer hire orders. Built during self-study, no dependencies beyond the standard library.
 
----
+```
+  ██████╗ ██╗ ██████╗     ████████╗ ██████╗ ██╗    ██╗
+  ██╔══██╗██║██╔════╝        ██╔══╝██╔═══██╗██║    ██║
+  ██████╔╝██║██║  ███╗       ██║   ██║   ██║██║ █╗ ██║
+  ██╔══██╗██║██║   ██║       ██║   ██║   ██║██║███╗██║
+  ██████╔╝██║╚██████╔╝       ██║   ╚██████╔╝╚███╔███╔╝
+  ╚═════╝ ╚═╝ ╚═════╝        ╚═╝    ╚═════╝  ╚══╝╚══╝
+  Trailer Hire System
+```
 
-## What It Does
+## What it does
 
 | Feature | Description |
 |---------|-------------|
-| Order Processing | Configure trailer length, calculate cost per day, and generate a full order summary |
-| Customer Management | Collect and save customer details, with surname-based lookup for returning customers |
-| JSON Persistence | Orders and customers are saved to local JSON files and persist between sessions |
-| ASCII UI | Clean terminal interface with a branded banner and formatted output |
+| Order processing | Configure trailer length, calculate cost per day, and generate a full order summary with a unique order ID |
+| Customer management | Collect and save customer details, with surname-based lookup so returning customers are not re-entered |
+| JSON persistence | Orders and customers are written to `orders.json` and `customers.json` and survive between sessions |
+| Terminal UI | Banner, formatted output and screen clearing, all in the standard library |
 
----
+## Pricing
 
-## How It Works
+Trailer width is fixed at 2.5m. Cost per day is the deck area at $125 per square metre, plus $100 per wheel set. Trailers under 3m take one wheel set, 3m and over take two.
 
-1. Select **Place New Order** to configure a trailer and calculate hire cost
-2. Enter hire duration to generate an order summary with a unique order ID
-3. Customer details are collected and saved — returning customers can be looked up by surname
-4. All orders and customer records are written to `orders.json` and `customers.json`
+```
+cost_per_day = (length * 2.5 * 125) + (100 * wheel_sets)
+```
 
----
+A 5m trailer works out at 12.5 square metres, two wheel sets, $1762.50 a day.
 
-## Pricing Formula
+## How it works
 
-- Trailer width is fixed at 2.5m
-- Cost per day = `(length × 2.5 × $125) + wheel set cost`
-- Trailers under 3m use 1 wheel set, 3m and over use 2
+1. Pick **Place New Order**, enter a trailer length, and the system prices it
+2. Enter the hire duration to get an order summary with a generated order ID
+3. Customer details are collected and saved, and a returning customer can be found by surname
+4. Everything is written back to the two JSON files
 
----
+About 226 lines across 9 functions.
 
-## Skills Demonstrated
+## Notes
 
-- Python fundamentals and control flow
-- JSON file I/O and data persistence
-- Input validation and error handling
-- Terminal UI design and formatting
+The banner uses box-drawing characters. On Windows with a legacy console code page this raises a `UnicodeEncodeError`, so run it in a UTF-8 terminal, or set `PYTHONIOENCODING=utf-8`.
 
----
+Order and customer IDs come from `random.randint(0, 999999)` with no uniqueness check. Over six-figure record counts that will eventually collide. Fine for a single-operator counter application, wrong for anything real.
 
-## Stack
+## Running it
 
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=python,vscode,git" />
-</p>
+```bash
+python main.py
+```
+
+## Getting the code
+
+Clone it, or download a ZIP from the [releases page](https://github.com/Squ1dddy/bigtow-trailer-hire/releases).
