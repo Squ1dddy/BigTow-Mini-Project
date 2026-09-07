@@ -1,6 +1,8 @@
 # BigTow: trailer hire management system
 
-A Python terminal application for managing trailer hire orders. Built during self-study, no dependencies beyond the standard library.
+A Python terminal application for managing trailer hire orders. No dependencies beyond the standard library.
+
+*In-class project, HSC Software Engineering, Inner Sydney High School. Year 12.*
 
 ```
   ██████╗ ██╗ ██████╗     ████████╗ ██████╗ ██╗    ██╗
